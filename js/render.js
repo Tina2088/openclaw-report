@@ -103,7 +103,6 @@ function renderCard(caseData, category, hidden = false) {
 
       <div class="case-card__cover" style="background: ${gradient}">
         <span class="case-card__initial" aria-hidden="true">${initial}</span>
-        ${caseData.verified ? '<span class="case-card__verified">✓ 已验证 Verified</span>' : ''}
         <div class="case-card__name-wrap">
           <h3 class="case-card__name">${escapeHtml(caseData.name)}</h3>
           ${caseData.nameZh ? `<p class="case-card__name-zh">${escapeHtml(caseData.nameZh)}</p>` : ''}
@@ -126,8 +125,14 @@ function renderCard(caseData, category, hidden = false) {
 
           ${links ? `
             <p class="case-card__section-label">相关链接 <span class="case-card__section-label-en">Links</span></p>
-            <div class="case-card__links">${links}</div>
-          ` : ''}
+            <div class="case-card__links">
+              <a href="case.html?id=${caseData.id}" class="case-card__link case-card__link--primary">查看完整详情 →</a>
+            </div>
+          ` : `
+            <div class="case-card__links">
+              <a href="case.html?id=${caseData.id}" class="case-card__link case-card__link--primary">查看完整详情 →</a>
+            </div>
+          `}
 
           <button class="case-card__collapse-btn" aria-label="收起 ${caseData.name}">
             收起 · Collapse ↑

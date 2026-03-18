@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>案例详情 — Tina-OpenClaw</title>
+  <meta name="description" content="OpenClaw 应用案例详情">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/case.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="case-nav">
+    <a href="index.html" class="case-nav__back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      返回案例列表
+    </a>
+    <span class="case-nav__logo">Tina-OpenClaw</span>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="case-main" id="case-main">
+    <!-- 加载状态 -->
+    <div class="case-loading" id="case-loading">
+      <div class="case-loading__spinner"></div>
+      <p>正在加载案例内容…</p>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="case-footer">
+    <div class="case-footer__inner">
+      <p>© 2026 Tina-OpenClaw · 数据来源：<a href="https://github.com/hesamsheikh/awesome-openclaw-usecases" target="_blank" rel="noopener noreferrer">awesome-openclaw-usecases</a></p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/case.js"></script>
+</body>
+</html>

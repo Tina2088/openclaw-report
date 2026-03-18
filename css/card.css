@@ -209,3 +209,21 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/* 主要链接按钮 */
+.case-card__link--primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFFFFF;
+  background: var(--color-accent);
+  border: none;
+  border-radius: 20px;
+  transition: background 0.2s, transform 0.2s;
+}
+.case-card__link--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
