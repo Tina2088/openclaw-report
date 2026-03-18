@@ -1,0 +1,131 @@
+/* ===== 平板端（768px - 1023px） ===== */
+@media (max-width: 1023px) {
+  .hero__title {
+    font-size: 48px;
+  }
+
+  .category__title {
+    font-size: 36px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .nav__links {
+    gap: 2px;
+  }
+
+  .nav__link {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+}
+
+/* ===== 移动端（< 768px） ===== */
+@media (max-width: 767px) {
+  .hero__title {
+    font-size: 36px;
+    letter-spacing: -0.3px;
+  }
+
+  .hero__stats {
+    font-size: 17px;
+  }
+
+  .category {
+    padding: var(--space-xl) 0;
+  }
+
+  .category__title {
+    font-size: 28px;
+  }
+
+  .category__header {
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .case-card:hover {
+    transform: none;
+  }
+
+  /* 移动端导航 */
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 4px;
+  }
+
+  .nav__links.is-open {
+    display: flex;
+  }
+
+  .nav__link {
+    font-size: 17px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__hamburger.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__hamburger.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .expand-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+
+/* ===== 减少动画（无障碍） ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===== 大屏（> 1400px） ===== */
+@media (min-width: 1400px) {
+  .category__inner {
+    max-width: 1400px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
