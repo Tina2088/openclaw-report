@@ -80,7 +80,8 @@
     "verified": true,
     "featured": true,
     "descriptionZh": "通过自然语言查询，从 109+ 个来源聚合高质量科技新闻，并进行质量评分。",
-    "nameZh": "多源科技新闻聚合"
+    "nameZh": "多源科技新闻聚合",
+    "githubFile": "multi-source-tech-news-digest"
   },
   {
     "id": "x-twitter-automation",
@@ -121,7 +122,8 @@
     "verified": true,
     "featured": true,
     "descriptionZh": "输入你的目标，让 AI Agent 自动生成每日任务和小应用，帮你实现目标。",
-    "nameZh": "目标驱动自主任务"
+    "nameZh": "目标驱动自主任务",
+    "githubFile": "overnight-mini-app-builder"
   },
   {
     "id": "youtube-content-pipeline",
@@ -163,7 +165,8 @@
     "verified": true,
     "featured": true,
     "descriptionZh": "在 Discord 中运行多 Agent 流水线，包含研究、写作和缩略图生成 Agent，批量生产内容。",
-    "nameZh": "多Agent内容工厂"
+    "nameZh": "多Agent内容工厂",
+    "githubFile": "content-factory"
   },
   {
     "id": "autonomous-game-dev-pipeline",
@@ -479,7 +482,8 @@
     "verified": true,
     "featured": false,
     "descriptionZh": "聚合家庭日历生成晨间简报，并管理家庭库存的智能家庭助手。",
-    "nameZh": "家庭日历助手"
+    "nameZh": "家庭日历助手",
+    "githubFile": "family-calendar-household-assistant"
   },
   {
     "id": "multi-agent-team",
@@ -520,7 +524,8 @@
     "verified": true,
     "featured": false,
     "descriptionZh": "具备统一 UI、多 Agent 支持和 Telegram 远程修复功能的桌面协作应用。",
-    "nameZh": "桌面协作应用"
+    "nameZh": "桌面协作应用",
+    "githubFile": "aionui-cowork-desktop"
   },
   {
     "id": "custom-morning-brief",
@@ -584,7 +589,8 @@
     "verified": true,
     "featured": false,
     "descriptionZh": "通过 Telegram 或短信进行主动每日打卡的习惯追踪和问责教练。",
-    "nameZh": "习惯追踪教练"
+    "nameZh": "习惯追踪教练",
+    "githubFile": "habit-tracker-accountability-coach"
   },
   {
     "id": "second-brain",

@@ -72,8 +72,7 @@ function translateHeading(text) {
 }
 
 // 简单 Markdown → HTML 转换器
-// descriptionZh: 案例中文描述，插入到第一段英文后面
-function markdownToHtml(md, descriptionZh) {
+function markdownToHtml(md) {
   const lines = md.split('\n');
   const html = [];
   let inCode = false;
@@ -81,8 +80,7 @@ function markdownToHtml(md, descriptionZh) {
   let codeLines = [];
   let inList = false;
   let listType = '';
-  let firstParaDone = false;  // 是否已插入中文概述
-  let skippedH1 = false;      // 是否已跳过 H1
+  let skippedH1 = false;
 
   function flushList() {
     if (!inList) return;
@@ -212,11 +210,6 @@ function markdownToHtml(md, descriptionZh) {
     flushList();
     if (line.trim()) {
       html.push(`<p class="case-content__p">${renderInline(line)}</p>`);
-      // 第一段英文后插入中文概述
-      if (!firstParaDone && descriptionZh) {
-        html.push(`<p class="case-content__p case-content__p--zh">${escapeHtml(descriptionZh)}</p>`);
-        firstParaDone = true;
-      }
     }
   }
 
@@ -279,10 +272,11 @@ async function init() {
   }
 
   try {
-    // 并行加载案例元数据和 GitHub markdown
-    const [casesRes, mdRes] = await Promise.all([
+    // 并行加载案例元数据 + 中文翻译（优先）+ 英文原文（备用）
+    const [casesRes, zhRes, enRes] = await Promise.all([
       fetch('data/cases.json'),
-      fetch(`${GITHUB_RAW}/${id}.md`)
+      fetch(`data/translations/${id}.json`).catch(() => null),
+      fetch(`${GITHUB_RAW}/${id}.md`).catch(() => null),
     ]);
 
     if (!casesRes.ok) throw new Error('无法加载案例数据');
@@ -298,9 +292,13 @@ async function init() {
     // 更新页面标题
     document.title = `${caseData.nameZh || caseData.name} — Tina-OpenClaw`;
 
+    // 优先用中文翻译，否则用英文原文
     let mdContent = null;
-    if (mdRes.ok) {
-      mdContent = await mdRes.text();
+    if (zhRes && zhRes.ok) {
+      const zhData = await zhRes.json();
+      mdContent = zhData.content;
+    } else if (enRes && enRes.ok) {
+      mdContent = await enRes.text();
     }
 
     renderCase(caseData, mdContent);
@@ -360,7 +358,7 @@ function renderCase(caseData, mdContent) {
     <div class="case-content">
       <div class="case-content__inner">
         ${mdContent
-          ? markdownToHtml(mdContent, caseData.descriptionZh)
+          ? markdownToHtml(mdContent)
           : `<div class="case-content__no-content">
                <p>📄 暂时无法加载详细内容</p>
                <p>请访问 <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">GitHub 原文</a> 查看完整内容。</p>

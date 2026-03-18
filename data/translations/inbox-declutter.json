@@ -1,0 +1,4 @@
+{
+  "id": "inbox-declutter",
+  "content": "# 收件箱整理\n\nNewsletter 邮件会像其他任何东西一样占满收件箱。很多时候它们会堆积起来而根本不被打开。\n\n## 所需技能\n[Gmail OAuth 设置](https://clawhub.ai/kai-jar/gmail-oauth)。\n\n## 设置方法\n1. [可选] 为 OpenClaw 创建一个新的 Gmail 账户。\n2. [可选] 从主邮箱取消订阅所有 newsletter，然后用 OpenClaw 邮箱重新订阅它们。\n3. 安装该技能并确保其正常工作。\n4. 指示 OpenClaw：\n```提示词\nI want you to run a cron job everyday at 8 p.m. to read all the newsletter emails of the past 24 hours and give me a digest of the most important bits along with links to read more. Then ask for my feedback on whether you picked good bits, and update your memory based on my preferences for better digests in the future jobs.\n```"
+}

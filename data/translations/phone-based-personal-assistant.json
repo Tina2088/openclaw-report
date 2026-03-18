@@ -1,0 +1,4 @@
+{
+  "id": "phone-based-personal-assistant",
+  "content": "# 电话个人助手\n\n## 痛点\n\n你希望从任何电话访问你的 AI agent，无需智能手机应用或互联网浏览器。你需要在驾驶、行走或双手被占用时获得免提语音协助。\n\n## 功能介绍\n\nClawdTalk 使 OpenClaw 能够接收和拨打电话，将任何电话转变为你的 AI 助手的网关。你可以：\n- 拨打电话号码通过语音与你的 AI agent 交谈\n- 通过语音获取日历提醒、Jira 更新和网络搜索结果\n- 与 Telnyx 集成以获得可靠的电话连接\n\nSMS 支持即将推出。\n\n## Prompts\n\n```prompt\nYou are available via phone. When I call, greet me and ask how I can help.\n\nFor calendar queries: \"What's on my calendar today?\"\nFor Jira updates: \"Show me my open tickets\"\nFor web search: \"Search for latest news on AI agents\"\n```\n\n## 所需技能\n\n- [ClawdTalk](https://github.com/team-telnyx/clawdtalk-client)\n- Calendar skill（Google Calendar 或 Outlook）\n- Jira skill\n- Web search skill\n\n## 相关链接\n\n- [ClawdTalk Website](https://clawdtalk.com)\n- [ClawdTalk GitHub](https://github.com/team-telnyx/clawdtalk-client)\n- [Telnyx API](https://telnyx.com/)\n- [OpenClaw Skills](https://github.com/openclaw/skills)"
+}
