@@ -1,0 +1,402 @@
+[
+  {
+    "id": "daily-reddit-digest",
+    "name": "Daily Reddit Digest",
+    "category": "social-media",
+    "description": "Summarize curated subreddit digests based on your preferences. Get daily summaries of top posts delivered to your inbox.",
+    "tools": ["OpenClaw", "Reddit API", "Email"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/daily-reddit-digest.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "daily-youtube-digest",
+    "name": "Daily YouTube Digest",
+    "category": "social-media",
+    "description": "Get daily summaries of new videos from your favorite YouTube channels. Never miss important content.",
+    "tools": ["OpenClaw", "YouTube API", "Email"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/daily-youtube-digest.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "x-account-analysis",
+    "name": "X Account Analysis",
+    "category": "social-media",
+    "description": "Receive qualitative analysis of your X (Twitter) account including engagement patterns and content performance.",
+    "tools": ["OpenClaw", "X API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/x-account-analysis.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "multi-source-tech-news",
+    "name": "Multi-Source Tech News Digest",
+    "category": "social-media",
+    "description": "Aggregate quality-scored tech news from 109+ sources via natural language queries. Stay on top of the tech world.",
+    "tools": ["OpenClaw", "RSS", "n8n"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/multi-source-tech-news-digest.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "x-twitter-automation",
+    "name": "X/Twitter Automation",
+    "category": "social-media",
+    "description": "Post tweets, reply, like, retweet, follow, DM, search, and monitor accounts via the TweetClaw plugin.",
+    "tools": ["OpenClaw", "TweetClaw", "X API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/x-twitter-automation.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "goal-driven-autonomous-tasks",
+    "name": "Goal-Driven Autonomous Tasks",
+    "category": "creative-building",
+    "description": "Brain dump your goals and have agents autonomously generate daily tasks and mini-apps to achieve them.",
+    "tools": ["OpenClaw", "Multi-Agent"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/overnight-mini-app-builder.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "youtube-content-pipeline",
+    "name": "YouTube Content Pipeline",
+    "category": "creative-building",
+    "description": "Automate video idea scouting, research, and tracking for your YouTube channel.",
+    "tools": ["OpenClaw", "YouTube API", "Notion"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/youtube-content-pipeline.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "multi-agent-content-factory",
+    "name": "Multi-Agent Content Factory",
+    "category": "creative-building",
+    "description": "Run a multi-agent pipeline in Discord with research, writing, and thumbnail agents working in parallel.",
+    "tools": ["OpenClaw", "Discord", "Multi-Agent"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/content-factory.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "autonomous-game-dev-pipeline",
+    "name": "Autonomous Game Dev Pipeline",
+    "category": "creative-building",
+    "description": "Full lifecycle game development management from backlog to git commit with a 'Bugs First' policy.",
+    "tools": ["OpenClaw", "Git", "Multi-Agent"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/autonomous-game-dev-pipeline.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "podcast-production-pipeline",
+    "name": "Podcast Production Pipeline",
+    "category": "creative-building",
+    "description": "Automate guest research, episode outlines, show notes, and social media promotion for your podcast.",
+    "tools": ["OpenClaw", "Email", "Social Media"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/podcast-production-pipeline.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "n8n-workflow-orchestration",
+    "name": "n8n Workflow Orchestration",
+    "category": "infrastructure-devops",
+    "description": "Delegate API calls via webhooks without exposing credentials. Secure workflow orchestration with n8n.",
+    "tools": ["OpenClaw", "n8n", "Webhooks"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/n8n-workflow-orchestration.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "self-healing-home-server",
+    "name": "Self-Healing Home Server",
+    "category": "infrastructure-devops",
+    "description": "Always-on infrastructure agent with SSH access and automated cron jobs that self-heals your home server.",
+    "tools": ["OpenClaw", "SSH", "Cron"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/self-healing-home-server.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "autonomous-project-management",
+    "name": "Autonomous Project Management",
+    "category": "productivity",
+    "description": "Coordinate multi-agent projects using the STATE.yaml pattern for transparent, resumable workflows.",
+    "tools": ["OpenClaw", "Multi-Agent", "YAML"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/autonomous-project-management.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "multi-channel-customer-service",
+    "name": "Multi-Channel AI Customer Service",
+    "category": "productivity",
+    "description": "Unify WhatsApp, Instagram, Email, and Google Reviews in one AI-powered inbox.",
+    "tools": ["OpenClaw", "WhatsApp", "Instagram", "Email"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/multi-channel-customer-service.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "phone-based-personal-assistant",
+    "name": "Phone-Based Personal Assistant",
+    "category": "productivity",
+    "description": "Access your AI agent via phone calls for hands-free assistance anywhere, anytime.",
+    "tools": ["OpenClaw", "Twilio", "Phone API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/phone-based-personal-assistant.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "inbox-declutter",
+    "name": "Inbox De-clutter",
+    "category": "productivity",
+    "description": "Summarize newsletters and send clean digests via email. Cut through inbox noise automatically.",
+    "tools": ["OpenClaw", "Email", "Gmail"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/inbox-declutter.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "personal-crm",
+    "name": "Personal CRM",
+    "category": "productivity",
+    "description": "Automatically discover and track contacts from your email and calendar. Never lose touch.",
+    "tools": ["OpenClaw", "Gmail", "Google Calendar"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/personal-crm.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "health-symptom-tracker",
+    "name": "Health & Symptom Tracker",
+    "category": "productivity",
+    "description": "Track food intake and symptoms to identify triggers and patterns in your health.",
+    "tools": ["OpenClaw", "Notion", "Telegram"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/health-symptom-tracker.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "multi-channel-assistant",
+    "name": "Multi-Channel Personal Assistant",
+    "category": "productivity",
+    "description": "Route tasks across Telegram, Slack, email, and calendar from a single AI assistant.",
+    "tools": ["OpenClaw", "Telegram", "Slack", "Email"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/multi-channel-assistant.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "project-state-management",
+    "name": "Project State Management",
+    "category": "productivity",
+    "description": "Event-driven project tracking with automatic context capture for seamless handoffs.",
+    "tools": ["OpenClaw", "YAML", "Git"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/project-state-management.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "dynamic-dashboard",
+    "name": "Dynamic Dashboard",
+    "category": "productivity",
+    "description": "Real-time dashboard with parallel data fetching from multiple APIs and databases.",
+    "tools": ["OpenClaw", "APIs", "Database"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/dynamic-dashboard.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "todoist-task-manager",
+    "name": "Todoist Task Manager",
+    "category": "productivity",
+    "description": "Sync reasoning and progress logs to Todoist for full transparency on agent work.",
+    "tools": ["OpenClaw", "Todoist"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/todoist-task-manager.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "family-calendar-household",
+    "name": "Family Calendar & Household Assistant",
+    "category": "productivity",
+    "description": "Aggregate family calendars into a morning briefing and manage household inventory automatically.",
+    "tools": ["OpenClaw", "Google Calendar", "Telegram"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/family-calendar-household-assistant.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "multi-agent-team",
+    "name": "Multi-Agent Specialized Team",
+    "category": "productivity",
+    "description": "Run a coordinated team of strategy, dev, marketing, and business agents working together.",
+    "tools": ["OpenClaw", "Multi-Agent"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/multi-agent-team.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "desktop-cowork",
+    "name": "OpenClaw as Desktop Cowork",
+    "category": "productivity",
+    "description": "Desktop app with unified UI, multi-agent support, and remote repair via Telegram.",
+    "tools": ["OpenClaw", "Electron", "Telegram"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/aionui-cowork-desktop.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "custom-morning-brief",
+    "name": "Custom Morning Brief",
+    "category": "productivity",
+    "description": "Fully customized daily briefing with news, tasks, weather, and AI recommendations.",
+    "tools": ["OpenClaw", "Email", "APIs"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/custom-morning-brief.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "meeting-notes-action-items",
+    "name": "Automated Meeting Notes & Action Items",
+    "category": "productivity",
+    "description": "Turn meeting transcripts into summaries and automatically create tasks in Jira, Linear, or Todoist.",
+    "tools": ["OpenClaw", "Jira", "Linear", "Todoist"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/meeting-notes-action-items.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "habit-tracker",
+    "name": "Habit Tracker & Accountability Coach",
+    "category": "productivity",
+    "description": "Proactive daily check-ins via Telegram or SMS to keep you on track with your habits.",
+    "tools": ["OpenClaw", "Telegram", "Twilio"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/habit-tracker-accountability-coach.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "second-brain",
+    "name": "Second Brain",
+    "category": "productivity",
+    "description": "Text anything to remember it, then search your memories in a custom Next.js dashboard.",
+    "tools": ["OpenClaw", "Next.js", "Vector DB"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/second-brain.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "event-guest-confirmation",
+    "name": "Event Guest Confirmation",
+    "category": "productivity",
+    "description": "Call guests one-by-one to confirm attendance and compile a summary report automatically.",
+    "tools": ["OpenClaw", "Twilio", "Phone API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/event-guest-confirmation.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "phone-call-notifications",
+    "name": "Phone Call Notifications",
+    "category": "productivity",
+    "description": "Turn agent alerts into real phone calls with two-way conversation capability.",
+    "tools": ["OpenClaw", "Twilio"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/phone-call-notifications.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "local-crm-framework",
+    "name": "Local CRM Framework",
+    "category": "productivity",
+    "description": "Fully local CRM and sales automation with DuckDB and browser automation. No cloud required.",
+    "tools": ["OpenClaw", "DuckDB", "Browser Automation"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/local-crm-framework.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "earnings-tracker",
+    "name": "AI Earnings Tracker",
+    "category": "research-learning",
+    "description": "Track tech and AI earnings reports with automated previews and alerts before market open.",
+    "tools": ["OpenClaw", "Financial APIs", "Email"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/earnings-tracker.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "knowledge-base-rag",
+    "name": "Personal Knowledge Base (RAG)",
+    "category": "research-learning",
+    "description": "Build a searchable knowledge base from URLs, tweets, and articles using RAG technology.",
+    "tools": ["OpenClaw", "Vector DB", "RAG"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/knowledge-base-rag.md"}],
+    "verified": true,
+    "featured": true
+  },
+  {
+    "id": "market-research-product-factory",
+    "name": "Market Research & Product Factory",
+    "category": "research-learning",
+    "description": "Mine Reddit and X for pain points, then automatically build MVPs to solve them.",
+    "tools": ["OpenClaw", "Reddit API", "X API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/market-research-product-factory.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "pre-build-idea-validator",
+    "name": "Pre-Build Idea Validator",
+    "category": "research-learning",
+    "description": "Scan GitHub, HN, npm, PyPI, and Product Hunt before building to validate your idea.",
+    "tools": ["OpenClaw", "GitHub API", "HN API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/pre-build-idea-validator.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "semantic-memory-search",
+    "name": "Semantic Memory Search",
+    "category": "research-learning",
+    "description": "Vector-powered semantic search with hybrid retrieval and auto-sync across your knowledge.",
+    "tools": ["OpenClaw", "Vector DB", "Embeddings"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/semantic-memory-search.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "arxiv-paper-reader",
+    "name": "arXiv Paper Reader",
+    "category": "research-learning",
+    "description": "Read and analyze arXiv papers conversationally with automatic summaries and key insights.",
+    "tools": ["OpenClaw", "arXiv API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/arxiv-paper-reader.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "latex-paper-writing",
+    "name": "LaTeX Paper Writing",
+    "category": "research-learning",
+    "description": "Write and compile LaTeX papers with instant PDF preview and AI-assisted editing.",
+    "tools": ["OpenClaw", "LaTeX", "PDF"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/latex-paper-writing.md"}],
+    "verified": true,
+    "featured": false
+  },
+  {
+    "id": "polymarket-autopilot",
+    "name": "Polymarket Autopilot",
+    "category": "finance-trading",
+    "description": "Automated paper trading on prediction markets with backtesting capabilities.",
+    "tools": ["OpenClaw", "Polymarket API"],
+    "links": [{"text": "查看详情", "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/polymarket-autopilot.md"}],
+    "verified": true,
+    "featured": true
+  }
+]
