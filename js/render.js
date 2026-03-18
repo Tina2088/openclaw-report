@@ -104,8 +104,8 @@ function renderCard(caseData, category, hidden = false) {
       <div class="case-card__cover" style="background: ${gradient}">
         <span class="case-card__initial" aria-hidden="true">${initial}</span>
         <div class="case-card__name-wrap">
-          <h3 class="case-card__name">${escapeHtml(caseData.name)}</h3>
           ${caseData.nameZh ? `<p class="case-card__name-zh">${escapeHtml(caseData.nameZh)}</p>` : ''}
+          <h3 class="case-card__name">${escapeHtml(caseData.name)}</h3>
         </div>
       </div>
 
