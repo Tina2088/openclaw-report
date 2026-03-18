@@ -127,12 +127,15 @@ function markdownToHtml(md, descriptionZh) {
     if (h1) {
       flushList();
       if (!skippedH1) {
-        // 跳过第一个 H1（已在 Hero 区显示）
         skippedH1 = true;
       } else {
         const text = h1[1];
         const zh = translateHeading(text);
-        html.push(`<h1 class="case-content__h1">${escapeHtml(text)}${zh ? `<span class="case-content__heading-zh">${zh}</span>` : ''}</h1>`);
+        if (zh) {
+          html.push(`<h1 class="case-content__h1"><span class="case-content__heading-main">${zh}</span><span class="case-content__heading-en">${escapeHtml(text)}</span></h1>`);
+        } else {
+          html.push(`<h1 class="case-content__h1">${escapeHtml(text)}</h1>`);
+        }
       }
       continue;
     }
@@ -140,14 +143,22 @@ function markdownToHtml(md, descriptionZh) {
       flushList();
       const text = h2[1];
       const zh = translateHeading(text);
-      html.push(`<h2 class="case-content__h2">${escapeHtml(text)}${zh ? `<span class="case-content__heading-zh">${zh}</span>` : ''}</h2>`);
+      if (zh) {
+        html.push(`<h2 class="case-content__h2"><span class="case-content__heading-main">${zh}</span><span class="case-content__heading-en">${escapeHtml(text)}</span></h2>`);
+      } else {
+        html.push(`<h2 class="case-content__h2">${escapeHtml(text)}</h2>`);
+      }
       continue;
     }
     if (h3) {
       flushList();
       const text = h3[1];
       const zh = translateHeading(text);
-      html.push(`<h3 class="case-content__h3">${escapeHtml(text)}${zh ? `<span class="case-content__heading-zh">${zh}</span>` : ''}</h3>`);
+      if (zh) {
+        html.push(`<h3 class="case-content__h3"><span class="case-content__heading-main">${zh}</span><span class="case-content__heading-en">${escapeHtml(text)}</span></h3>`);
+      } else {
+        html.push(`<h3 class="case-content__h3">${escapeHtml(text)}</h3>`);
+      }
       continue;
     }
 
