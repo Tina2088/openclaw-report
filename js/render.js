@@ -47,6 +47,7 @@ function renderCategories(categories, casesByCategory) {
             <div>
               <h2 class="category__title" id="title-${cat.id}" tabindex="-1">
                 ${cat.icon} ${cat.name}
+                <span class="category__title-en">${cat.nameEn}</span>
               </h2>
               <p class="category__description">${cat.description}</p>
             </div>
@@ -102,26 +103,34 @@ function renderCard(caseData, category, hidden = false) {
 
       <div class="case-card__cover" style="background: ${gradient}">
         <span class="case-card__initial" aria-hidden="true">${initial}</span>
-        ${caseData.verified ? '<span class="case-card__verified">✓ 已验证</span>' : ''}
-        <h3 class="case-card__name">${escapeHtml(caseData.name)}</h3>
+        ${caseData.verified ? '<span class="case-card__verified">✓ 已验证 Verified</span>' : ''}
+        <div class="case-card__name-wrap">
+          <h3 class="case-card__name">${escapeHtml(caseData.name)}</h3>
+          ${caseData.nameZh ? `<p class="case-card__name-zh">${escapeHtml(caseData.nameZh)}</p>` : ''}
+        </div>
       </div>
 
       <div class="case-card__details" aria-hidden="true">
         <div class="case-card__details-inner">
-          <p class="case-card__description">${escapeHtml(caseData.description)}</p>
+          ${caseData.descriptionZh ? `
+            <p class="case-card__description case-card__description--zh">${escapeHtml(caseData.descriptionZh)}</p>
+            <p class="case-card__description case-card__description--en">${escapeHtml(caseData.description)}</p>
+          ` : `
+            <p class="case-card__description">${escapeHtml(caseData.description)}</p>
+          `}
 
           ${tools ? `
-            <p class="case-card__section-label">使用工具</p>
+            <p class="case-card__section-label">使用工具 <span class="case-card__section-label-en">Tools</span></p>
             <div class="case-card__tools">${tools}</div>
           ` : ''}
 
           ${links ? `
-            <p class="case-card__section-label">相关链接</p>
+            <p class="case-card__section-label">相关链接 <span class="case-card__section-label-en">Links</span></p>
             <div class="case-card__links">${links}</div>
           ` : ''}
 
           <button class="case-card__collapse-btn" aria-label="收起 ${caseData.name}">
-            收起 ↑
+            收起 · Collapse ↑
           </button>
         </div>
       </div>
