@@ -72,7 +72,8 @@ function translateHeading(text) {
 }
 
 // 简单 Markdown → HTML 转换器
-function markdownToHtml(md) {
+// descriptionZh: 案例中文描述，插入到第一段英文后面
+function markdownToHtml(md, descriptionZh) {
   const lines = md.split('\n');
   const html = [];
   let inCode = false;
@@ -80,6 +81,8 @@ function markdownToHtml(md) {
   let codeLines = [];
   let inList = false;
   let listType = '';
+  let firstParaDone = false;  // 是否已插入中文概述
+  let skippedH1 = false;      // 是否已跳过 H1
 
   function flushList() {
     if (!inList) return;
@@ -123,9 +126,14 @@ function markdownToHtml(md) {
 
     if (h1) {
       flushList();
-      const text = h1[1];
-      const zh = translateHeading(text);
-      html.push(`<h1 class="case-content__h1">${escapeHtml(text)}${zh ? `<span class="case-content__heading-zh">${zh}</span>` : ''}</h1>`);
+      if (!skippedH1) {
+        // 跳过第一个 H1（已在 Hero 区显示）
+        skippedH1 = true;
+      } else {
+        const text = h1[1];
+        const zh = translateHeading(text);
+        html.push(`<h1 class="case-content__h1">${escapeHtml(text)}${zh ? `<span class="case-content__heading-zh">${zh}</span>` : ''}</h1>`);
+      }
       continue;
     }
     if (h2) {
@@ -193,6 +201,11 @@ function markdownToHtml(md) {
     flushList();
     if (line.trim()) {
       html.push(`<p class="case-content__p">${renderInline(line)}</p>`);
+      // 第一段英文后插入中文概述
+      if (!firstParaDone && descriptionZh) {
+        html.push(`<p class="case-content__p case-content__p--zh">${escapeHtml(descriptionZh)}</p>`);
+        firstParaDone = true;
+      }
     }
   }
 
@@ -336,7 +349,7 @@ function renderCase(caseData, mdContent) {
     <div class="case-content">
       <div class="case-content__inner">
         ${mdContent
-          ? markdownToHtml(mdContent)
+          ? markdownToHtml(mdContent, caseData.descriptionZh)
           : `<div class="case-content__no-content">
                <p>📄 暂时无法加载详细内容</p>
                <p>请访问 <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">GitHub 原文</a> 查看完整内容。</p>
