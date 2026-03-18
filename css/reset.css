@@ -1,0 +1,101 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 背景色 */
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F5F5F7;
+  --color-border: #D2D2D7;
+
+  /* 文字色 */
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #6E6E73;
+  --color-text-tertiary: #86868B;
+
+  /* 点缀色 */
+  --color-accent: #0071E3;
+  --color-accent-hover: #0077ED;
+
+  /* 类别渐变色 */
+  --color-social-start: #FF3B30;
+  --color-social-end: #FF6B6B;
+  --color-creative-start: #FF9500;
+  --color-creative-end: #FFB84D;
+  --color-infra-start: #34C759;
+  --color-infra-end: #5DD57D;
+  --color-productivity-start: #007AFF;
+  --color-productivity-end: #4DA3FF;
+  --color-research-start: #5856D6;
+  --color-research-end: #8B89E6;
+  --color-finance-start: #FFD60A;
+  --color-finance-end: #FFE04D;
+
+  /* 字体 */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+  /* 间距 */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+  --space-2xl: 120px;
+
+  /* 圆角 */
+  --radius-card: 18px;
+  --radius-btn: 12px;
+  --radius-sm: 8px;
+
+  /* 阴影 */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-nav: 0 1px 0 rgba(0, 0, 0, 0.08);
+
+  /* 动画 */
+  --transition-fast: 0.2s ease;
+  --transition-card: 0.3s ease;
+  --transition-expand: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
