@@ -142,11 +142,11 @@ function initNavHighlight() {
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
+    ticking = true;
     requestAnimationFrame(() => {
       updateActiveLink(sections, navLinks, navHeight);
       ticking = false;
     });
-    ticking = true;
   }, { passive: true });
 
   // 初始化

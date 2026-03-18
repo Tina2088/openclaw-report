@@ -201,23 +201,6 @@
   display: none;
 }
 
-/* ===== Footer ===== */
-.footer {
-  padding: var(--space-xl) 24px;
-  text-align: center;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text-tertiary);
-  font-size: 14px;
-}
-
-.footer a {
-  color: var(--color-text-tertiary);
-}
-
-.footer a:hover {
-  color: var(--color-accent);
-}
-
 /* ===== 动画 ===== */
 @keyframes fadeInUp {
   to {

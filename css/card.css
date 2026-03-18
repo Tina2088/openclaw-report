@@ -66,7 +66,7 @@
 }
 
 .case-card.is-expanded .case-card__details {
-  max-height: 600px;
+  max-height: 1200px;
 }
 
 .case-card__details-inner {

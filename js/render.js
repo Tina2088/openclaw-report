@@ -63,6 +63,7 @@ function renderCategories(categories, casesByCategory) {
               class="expand-btn"
               data-category="${cat.id}"
               data-hidden="${hiddenCases.length}"
+              data-expanded="false"
               aria-expanded="false"
               aria-controls="grid-${cat.id}">
               显示全部 ${cases.length} 个案例
