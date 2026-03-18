@@ -1,5 +1,5 @@
 /* ===== 平板端（768px - 1023px） ===== */
-@media (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .hero__title {
     font-size: 48px;
   }
@@ -121,11 +121,4 @@
 
 /* ===== 大屏（> 1400px） ===== */
 @media (min-width: 1400px) {
-  .category__inner {
-    max-width: 1400px;
-  }
-
-  .cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
