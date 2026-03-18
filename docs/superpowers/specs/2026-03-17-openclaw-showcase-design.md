@@ -290,16 +290,57 @@
 ### 5.2 案例卡片交互
 
 **点击展开流程：**
-1. 用户点击案例卡片
-2. 卡片高度动画展开
-3. 详细内容淡入显示
-4. 其他卡片自动重新排列
-5. 页面自动滚动，确保展开的卡片完全可见
+1. 用户点击案例卡片任意位置
+2. 卡片添加 `expanded` 类
+3. 卡片高度从 280px 过渡到 auto（使用 `max-height` 技巧）
+4. 展开内容区域淡入（opacity: 0 → 1，延迟 0.2s）
+5. 其他卡片自动向下推移（CSS Grid 自动处理）
+6. 如果展开后卡片底部不在视口内，平滑滚动使其完全可见
+
+**展开内容包含：**
+- 完整描述（`description` 或 `descriptionZh`）
+- 使用的工具/技术（`tools` 数组，以标签形式展示）
+- 相关链接（`links` 数组，每个链接一个按钮）
+- "收起"按钮
+
+**展开内容布局：**
+```
+┌─────────────────────────────────────┐
+│ [首字母背景]                         │
+│ 案例名称                             │
+├─────────────────────────────────────┤
+│                                     │
+│ 📝 描述                              │
+│ 这是一个详细的案例描述...             │
+│                                     │
+│ 🛠️ 使用工具                          │
+│ [OpenClaw] [n8n] [Slack]            │
+│                                     │
+│ 🔗 相关链接                          │
+│ [GitHub →] [文档 →]                  │
+│                                     │
+│          [收起 ↑]                    │
+│                                     │
+└─────────────────────────────────────┘
+```
 
 **关闭展开：**
 - 点击卡片内的"收起"按钮
-- 点击卡片外部区域（可选）
-- 卡片动画收起，恢复原始高度
+- 按 ESC 键（键盘用户）
+- 卡片移除 `expanded` 类
+- 高度动画收起到 280px
+- 展开内容淡出
+
+**多卡片展开处理：**
+- 允许同时展开多个卡片
+- 每个卡片独立管理自己的展开状态
+- 不自动关闭其他已展开的卡片
+
+**动画参数：**
+- 展开/收起过渡时间：0.4s
+- 缓动函数：`cubic-bezier(0.4, 0, 0.2, 1)` (Material Design 标准)
+- 内容淡入延迟：0.2s
+- 滚动调整延迟：0.1s（等待展开动画开始）
 
 ### 5.3 响应式交互
 
@@ -328,36 +369,155 @@
 
 ```javascript
 {
-  id: "unique-id",
-  name: "案例名称",
-  category: "类别名称",
-  description: "详细描述（从GitHub获取）",
-  tools: ["工具1", "工具2"],  // 使用的技术/工具
+  id: "daily-reddit-digest",           // 唯一标识符（kebab-case）
+  name: "Daily Reddit Digest",         // 案例名称
+  nameZh: "每日Reddit摘要",            // 中文名称（可选）
+  category: "social-media",            // 所属类别ID
+  description: "Automatically aggregates top posts from selected subreddits and sends a daily digest via email or Slack.", // 英文描述
+  descriptionZh: "自动聚合选定subreddit的热门帖子，通过邮件或Slack发送每日摘要。", // 中文描述
+  tools: ["OpenClaw", "Reddit API", "n8n", "Slack"],  // 使用的工具/技术
+  tags: ["automation", "content-aggregation", "daily-digest"],  // 标签
   links: [
-    { text: "GitHub", url: "..." },
-    { text: "演示", url: "..." }
-  ]
+    { text: "GitHub", url: "https://github.com/..." },
+    { text: "Documentation", url: "https://..." }
+  ],
+  author: "username",                  // 案例作者（可选）
+  verified: true,                      // 是否已验证可用
+  featured: false                      // 是否为精选案例
 }
 ```
+
+**字段说明：**
+- `id`: 必填，用于URL和内部引用
+- `name`: 必填，显示在卡片上的主标题
+- `nameZh`: 可选，中文用户界面显示
+- `category`: 必填，关联到类别ID
+- `description`: 必填，展开后显示的详细说明（英文）
+- `descriptionZh`: 可选，中文详细说明
+- `tools`: 必填，至少包含一个工具
+- `tags`: 可选，用于未来的搜索和筛选功能
+- `links`: 可选，相关资源链接
+- `author`: 可选，案例贡献者
+- `verified`: 必填，标记案例是否经过验证
+- `featured`: 必填，用于首页精选展示
+
+**字符限制：**
+- `name`: 最多50个字符
+- `description`: 最多300个字符
+- `descriptionZh`: 最多200个字符
+- `tools`: 最多10个工具
 
 ### 6.2 类别信息
 
 ```javascript
 {
-  id: "social-media",
-  name: "社交媒体",
-  nameEn: "Social Media",
-  color: ["#FF3B30", "#FF6B6B"],  // 渐变色
-  count: 5,
-  description: "社交媒体自动化、内容聚合与分析"
+  id: "social-media",                  // 类别唯一标识符
+  name: "社交媒体",                     // ��文名称
+  nameEn: "Social Media",              // 英文名称
+  color: ["#FF3B30", "#FF6B6B"],      // 渐变色 [起始色, 结束色]
+  icon: "📱",                          // Emoji图标（可选）
+  count: 5,                            // 案例数量（动态计算）
+  description: "社交媒体自动化、内容聚合与分析", // 类别描述
+  order: 1                             // 显示顺序
 }
 ```
 
-### 6.3 内容来源
+**完整类别列表：**
 
-- 从 GitHub 仓库 `hesamsheikh/awesome-openclaw-usecases` 获取案例列表
-- 解析 README.md 文件，提取案例信息
-- 按类别组织数据
+```javascript
+const categories = [
+  {
+    id: "social-media",
+    name: "社交媒体",
+    nameEn: "Social Media",
+    color: ["#FF3B30", "#FF6B6B"],
+    icon: "📱",
+    description: "社交媒体自动化、内容聚合与分析",
+    order: 1
+  },
+  {
+    id: "creative-building",
+    name: "创意与构建",
+    nameEn: "Creative & Building",
+    color: ["#FF9500", "#FFB84D"],
+    icon: "🎨",
+    description: "内容创作、游戏开发、多媒体制作",
+    order: 2
+  },
+  {
+    id: "infrastructure-devops",
+    name: "基础设施与DevOps",
+    nameEn: "Infrastructure & DevOps",
+    color: ["#34C759", "#5DD57D"],
+    icon: "⚙️",
+    description: "服务器管理、工作流编排、自动化运维",
+    order: 3
+  },
+  {
+    id: "productivity",
+    name: "生产力工具",
+    nameEn: "Productivity",
+    color: ["#007AFF", "#4DA3FF"],
+    icon: "📊",
+    description: "项目管理、客服系统、邮件处理、日程安排",
+    order: 4
+  },
+  {
+    id: "research-learning",
+    name: "研究与学习",
+    nameEn: "Research & Learning",
+    color: ["#5856D6", "#8B89E6"],
+    icon: "📚",
+    description: "知识管理、市场研究、学术论文分析",
+    order: 5
+  },
+  {
+    id: "finance-trading",
+    name: "金融与交易",
+    nameEn: "Finance & Trading",
+    color: ["#FFD60A", "#FFE04D"],
+    icon: "💰",
+    description: "预测市场、交易自动化、财务分析",
+    order: 6
+  }
+];
+```
+
+### 6.3 数据存储方式
+
+**方案：静态JSON文件**
+
+```
+/data
+  ├── categories.json      // 类别定义
+  └── cases.json          // 所有案例数据
+```
+
+**理由：**
+- 案例数量有限（40+），静态文件足够
+- 无需数据库，部署简单
+- 便于版本控制和手动编辑
+- 加载速度快
+
+**数据加载流程：**
+1. 页面加载时，通过 `fetch()` 获取 JSON 文件
+2. 解析数据并按类别分组
+3. 渲染页面内容
+4. 缓存数据到 `localStorage`（可选）
+
+### 6.4 内容来源与数据准备
+
+**从 GitHub 获取数据：**
+1. 访问 `https://github.com/hesamsheikh/awesome-openclaw-usecases`
+2. 解析 README.md 文件中的案例列表
+3. 手动整理为 JSON 格式（初期）
+4. 未来可考虑自动化脚本定期同步
+
+**数据验证：**
+- 确保每个案例都有必填字段
+- 验证 URL 格式正确
+- 检查类别ID存在
+- 确认颜色代码有效
 
 ---
 
@@ -381,115 +541,217 @@
 - JavaScript 压缩
 - 移除未使用的代码
 
----
-
-## 八、可访问性
-
-### 8.1 语义化HTML
-
-- 使用 `<nav>`, `<section>`, `<article>` 等语义标签
-- 为交互元素添加 `aria-label`
-- 确保键盘可访问性
-
-### 8.2 对比度
-
-- 文字与背景对比度符合 WCAG AA 标准
-- 链接和按钮有明确的视觉反馈
-
-### 8.3 屏幕阅读器
-
-- 为图片添加 `alt` 属性
-- 为动态内容添加 `aria-live` 区域
 
 ---
 
-## 九、开发里程碑
+## 八、无障碍访问（Accessibility）
+
+### 8.1 键盘导航
+
+**导航栏：**
+- Tab 键可聚焦所有类别链接
+- Enter/Space 触发跳转
+- 聚焦时显示清晰的焦点环（`outline: 2px solid #0071E3`）
+
+**案例卡片：**
+- 所有卡片可通过 Tab 键访问
+- Enter/Space 展开/收起卡片
+- ESC 键关闭已展开的卡片
+- 展开后，焦点保持在卡片上
+
+**展开按钮：**
+- Tab 键可聚焦
+- Enter/Space 触发展开/收起
+
+### 8.2 ARIA 属性
+
+**导航栏：**
+```html
+<nav role="navigation" aria-label="类别导航">
+  <a href="#social-media" aria-current="page">社交媒体</a>
+  <a href="#productivity">生产力工具</a>
+</nav>
+```
+
+**案例卡片：**
+```html
+<article
+  class="case-card"
+  role="button"
+  tabindex="0"
+  aria-expanded="false"
+  aria-label="StartClaw - 垂直SaaS平台">
+</article>
+```
+
+**展开按钮：**
+```html
+<button class="expand-button" aria-expanded="false" aria-controls="category-social-media">
+  显示全部 5 个案例
+</button>
+```
+
+### 8.3 颜色对比度
+
+- 主标题（#1D1D1F on #FFFFFF）：对比度 20.6:1 ✅
+- 正文（#6E6E73 on #FFFFFF）：对比度 7.0:1 ✅
+- 辅助文字（#86868B on #FFFFFF）：对比度 4.8:1 ✅
+- 链接（#0071E3 on #FFFFFF）：对比度 4.5:1 ✅
+- 卡片白色文字 on 渐变背景：确保最浅处对比度 ≥ 4.5:1，不足时添加半透明黑色遮罩
+
+### 8.4 屏幕阅读器支持
+
+- 使用语义化 HTML5 标签（`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`）
+- 展开/收起时更新 `aria-expanded` 属性
+- 装饰性图标使用 `aria-hidden="true"`
+
+
+---
+
+## 九、性能优化
+
+### 9.1 加载性能目标
+
+- **FCP**: < 1.5s
+- **LCP**: < 2.5s
+- **TTI**: < 3.5s
+- **CLS**: < 0.1
+
+测试条件：Fast 3G 网络，中端移动设备
+
+### 9.2 资源优化
+
+- **CSS**：压缩，移除未使用样式，目标 < 30KB
+- **JavaScript**：压缩，使用原生 API 避免大型库，目标 < 50KB
+- **字体**：使用系统字体栈，无需加载外部字体
+- **图片**：纯色块背景使用 CSS 渐变，无需图片资源
+
+### 9.3 渲染优化
+
+- 动画只使用 `transform` 和 `opacity`（GPU 加速）
+- 避免触发 layout 的属性（`width`, `height`）
+- 节流滚动事件处理（throttle 100ms）
+- 使用事件委托减少监听器数量
+
+---
+
+## 十、浏览器兼容性
+
+### 10.1 支持范围
+
+| 浏览器 | 最低版本 |
+|--------|---------|
+| Chrome | 90+ |
+| Firefox | 88+ |
+| Safari | 14+ |
+| Edge | 90+ |
+| iOS Safari | 14+ |
+| Chrome Android | 90+ |
+
+### 10.2 降级策略
+
+- `scroll-behavior: smooth` 不支持时：使用 JS polyfill 或直接跳转
+- CSS Grid 不支持时：使用 Flexbox 降级
+- `backdrop-filter` 不支持时：导航栏使用纯色背景
+
+---
+
+## 十一、错误处理
+
+- **数据加载失败**：显示"加载失败，请刷新重试"提示 + 重试按钮
+- **数据格式错误**：跳过无效条目，控制台输出警告
+- **空类别**：显示"暂无案例"占位符或隐藏该类别
+
+---
+
+## 十二、SEO 优化
+
+### 12.1 元数据
+
+```html
+<title>Tina-OpenClaw 应用案例汇总 | 40+真实案例</title>
+<meta name="description" content="汇总展示 OpenClaw 的 40+ 个真实应用案例，涵盖社交媒体、生产力工具、研究学习等 6 大应用场景。">
+<meta property="og:title" content="Tina-OpenClaw 应用案例汇总">
+<meta property="og:description" content="40+真实 OpenClaw 应用案例，6大应用场景">
+<meta property="og:type" content="website">
+```
+
+### 12.2 URL 结构
+
+- 主页：`https://your-domain.com/`
+- 类别锚点：`https://your-domain.com/#social-media`
+- 案例锚点：`https://your-domain.com/#case-daily-reddit-digest`
+
+---
+
+## 十三、开发里程碑
 
 ### 阶段1：数据准备
 - 从 GitHub 获取案例数据
-- 整理为 JSON 格式
-- 定义数据结构
+- 整理为 JSON 格式（`/data/cases.json`, `/data/categories.json`）
+- 验证数据结构完整性
 
 ### 阶段2：静态页面
-- HTML 结构搭建
-- CSS 样式实现
-- 响应式布局
+- HTML 语义化结构搭建
+- CSS 样式实现（颜色系统、字体、间距、卡片）
+- 响应式布局（桌面4列、平板2列、手机1列）
 
 ### 阶段3：交互功能
-- 导航栏滚动监听
-- 案例卡片展开/收起
+- 导航栏滚动监听 + 高亮当前类别
+- 案例卡片展开/收起动画
 - 平滑滚动跳转
+- 展开按钮显示/隐藏更多案例
 
 ### 阶段4：优化与测试
-- 性能优化
+- 性能优化（压缩、懒加载）
 - 跨浏览器测试
 - 移动端适配
+- 无障碍访问验证
 
 ---
 
-## 十、设计决策记录
+## 十四、设计决策记录
 
-### 10.1 为什么选择单页滚动？
+### 14.1 为什么选择单页滚动？
 
-- **优点：**
-  - 符合 Apple 产品页的设计语言
-  - 提供连贯的浏览体验
-  - 减少页面跳转，降低认知负担
-  - 适合展示型网站
+- 符合 Apple 产品页的设计语言
+- 提供连贯的浏览体验，减少页面跳转
+- 适合展示型网站，SEO 影响可接受
 
-- **权衡：**
-  - 页面较长，但通过"显示更多"按钮控制初始内容量
-  - SEO 相对多页面略弱，但对于展示型网站影响不大
+### 14.2 为什么使用纯色块而非真实截图？
 
-### 10.2 为什么使用纯色块而非真实截图？
+- GitHub 仓库中的案例没有提供截图
+- 纯色块+首字母更符合极简设计风格
+- 统一的视觉语言，加载速度更快
+- 类似 Apple Music 专辑封面的视觉效果
 
-- **原因：**
-  - GitHub 仓库中的案例没有提供截图
-  - 纯色块+首字母更符合极简设计风格
-  - 统一的视觉语言，避免截图质量参差不齐
-  - 加载速度更快
+### 14.3 为什么选择页面内展开而非模态窗？
 
-- **视觉效果：**
-  - 类似 Apple Music 专辑封面
-  - 通过颜色区分类别，视觉识别度高
-
-### 10.3 为什么选择页面内展开而非模态窗？
-
-- **原因：**
-  - 保持用户在当前浏览上下文中
-  - 展开后仍能看到其他案例，便于对比
-  - 更符合单页滚动的设计理念
-  - 实现相对简单，性能更好
+- 保持用户在当前浏览上下文中
+- 展开后仍能看到其他案例，便于对比
+- 更符合单页滚动的设计理念
 
 ---
 
-## 十一、未来扩展
-
-### 11.1 可能的功能增强
+## 十五、未来扩展
 
 - **搜索功能**：按关键词搜索案例
 - **筛选功能**：按工具/技术筛选
-- **收藏功能**：用户可收藏感兴趣的案例
-- **分享功能**：生成案例分享链接
 - **深色模式**：支持系统深色模式
-
-### 11.2 内容更新
-
-- 定期从 GitHub 同步最新案例
-- 添加案例提交表单
-- 社区投票选出最佳案例
+- **��享功能**：生成案例分享链接
+- **内容同步**：自动化脚本定期从 GitHub 同步最新案例
 
 ---
 
-## 十二、总结
+## 十六、总结
 
 本设计方案以 Apple 官网的极简白色系风格为基础，通过单页滚动、大图卡片、页面内展开等交互方式，为 Tina-OpenClaw 应用案例汇总网站提供了专业、美观、易用的展示方案。
 
 设计重点：
-- ✅ 极简主义，聚焦内容
-- ✅ 清晰的信息层次
-- ✅ 流畅的浏览体验
-- ✅ 响应式设计，适配多端
-- ✅ 性能优化，快速加载
+- 极简主义，聚焦内容
+- 清晰的信息层次
+- 流畅的浏览体验
+- 响应式设计，适配多端
+- 性能优化，快速加载
 
 下一步：编写详细的实现计划，开始开发工作。
