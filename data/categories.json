@@ -1,0 +1,62 @@
+[
+  {
+    "id": "social-media",
+    "name": "社交媒体",
+    "nameEn": "Social Media",
+    "colorStart": "#FF3B30",
+    "colorEnd": "#FF6B6B",
+    "icon": "📱",
+    "description": "社交媒体自动化、内容聚合与分析",
+    "order": 1
+  },
+  {
+    "id": "creative-building",
+    "name": "创意与构建",
+    "nameEn": "Creative & Building",
+    "colorStart": "#FF9500",
+    "colorEnd": "#FFB84D",
+    "icon": "🎨",
+    "description": "内容创作、游戏开发、多媒体制作",
+    "order": 2
+  },
+  {
+    "id": "infrastructure-devops",
+    "name": "基础设施与DevOps",
+    "nameEn": "Infrastructure & DevOps",
+    "colorStart": "#34C759",
+    "colorEnd": "#5DD57D",
+    "icon": "⚙️",
+    "description": "服务器管理、工作流编排、自动化运维",
+    "order": 3
+  },
+  {
+    "id": "productivity",
+    "name": "生产力工具",
+    "nameEn": "Productivity",
+    "colorStart": "#007AFF",
+    "colorEnd": "#4DA3FF",
+    "icon": "📊",
+    "description": "项目管理、客服系统、邮件处理、日程安排",
+    "order": 4
+  },
+  {
+    "id": "research-learning",
+    "name": "研究与学习",
+    "nameEn": "Research & Learning",
+    "colorStart": "#5856D6",
+    "colorEnd": "#8B89E6",
+    "icon": "📚",
+    "description": "知识管理、市场研究、学术论文分析",
+    "order": 5
+  },
+  {
+    "id": "finance-trading",
+    "name": "金融与交易",
+    "nameEn": "Finance & Trading",
+    "colorStart": "#FFD60A",
+    "colorEnd": "#FFE04D",
+    "icon": "💰",
+    "description": "预测市场、交易自动化、财务分析",
+    "order": 6
+  }
+]
