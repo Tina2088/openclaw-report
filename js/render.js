@@ -5,6 +5,14 @@
 
 const INITIAL_VISIBLE = 4;  // 每个类别初始显示的卡片数
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 /**
  * 渲染导航栏类别链接
  */
@@ -94,12 +102,12 @@ function renderCard(caseData, category, hidden = false) {
       <div class="case-card__cover" style="background: ${gradient}">
         <span class="case-card__initial" aria-hidden="true">${initial}</span>
         ${caseData.verified ? '<span class="case-card__verified">✓ 已验证</span>' : ''}
-        <h3 class="case-card__name">${caseData.name}</h3>
+        <h3 class="case-card__name">${escapeHtml(caseData.name)}</h3>
       </div>
 
       <div class="case-card__details" aria-hidden="true">
         <div class="case-card__details-inner">
-          <p class="case-card__description">${caseData.description}</p>
+          <p class="case-card__description">${escapeHtml(caseData.description)}</p>
 
           ${tools ? `
             <p class="case-card__section-label">使用工具</p>
@@ -130,7 +138,7 @@ function renderError() {
     <div style="text-align:center; padding: 120px 24px; color: var(--color-text-secondary);">
       <p style="font-size:48px; margin-bottom:16px;">⚠️</p>
       <p style="font-size:21px; margin-bottom:24px;">加载失败，请刷新页面重试</p>
-      <button onclick="location.reload()" style="
+      <button class="error-retry-btn" style="
         padding: 12px 32px;
         font-size: 17px;
         color: var(--color-accent);
@@ -142,6 +150,8 @@ function renderError() {
       ">重试</button>
     </div>
   `;
+  const retryBtn = main.querySelector('.error-retry-btn');
+  if (retryBtn) retryBtn.addEventListener('click', () => location.reload());
 }
 
 export { renderNavLinks, renderCategories, renderError, INITIAL_VISIBLE };

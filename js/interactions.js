@@ -66,7 +66,6 @@ function expandCard(card) {
   // 确保卡片在视口内可见（延迟等待动画开始）
   setTimeout(() => {
     const rect = card.getBoundingClientRect();
-    const navHeight = 52;
     if (rect.bottom > window.innerHeight) {
       card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
